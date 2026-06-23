@@ -40,21 +40,24 @@
 
 //     console.log(myProduct.getInfo());
 
-//3. Search the Inventory
+//3a. Search the Inventory
     //-Allow users to search for a product by name.
   //  -Allow users to view products by category.
 
     
  class Product {
+        static nextId = 0;
         constructor(name, price, quantity) {
+            this.id = Product.nextId++;
             this.name = name;
             this.price = price;
             this.quantity = quantity;
         }
 
         getInfo() {
-            return (`Product class: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`);        }
-    }
+            return (`ID: ${this.id}, Product class: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`);        }
+        }
+    
     //create 3 products
     const myProduct = [
         new Product("Yoka Lamp", 50, 4),
@@ -96,6 +99,9 @@
     
     
     /*
+3b.  use a static counter to assign unique IDs to each product as they are created
+  additonal code for static counter added to step 3a.//SEE STEP 3a for counter
+
 4. Calculate Inventory Value
     -Find the total value of all products in stock.
     -(Price × Quantity for each product.)
